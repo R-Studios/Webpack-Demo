@@ -1,5 +1,11 @@
 {
   "name": "webpack-demo",
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss",
+    "./esnext/index.js",
+    "./esnext/configure.js"
+  ],
   "version": "1.0.0",
   "description": "",
   "private": true,
