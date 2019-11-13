@@ -8,7 +8,7 @@ module.exports = {
     usedExports: true,
   },
   entry: {
-    app: './src/index.js',
+    app: './src/index.ts',
     print: './src/print.js'
   },
   devtool: 'inline-source-map',
@@ -21,11 +21,6 @@ module.exports = {
       title: 'Output Management',
     }),
   ],
-  output: {
-    filename: "[name].bundle.js",
-    chunkFilename: '[name].bundle.js',
-    path: path.resolve(__dirname, "dist"),
-  },
   module: {
     rules: [
       {
@@ -39,6 +34,19 @@ module.exports = {
           'sass-loader',
         ],
       },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
     ],
+  },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ],
+  },
+  output: {
+    filename: "[name].bundle.js",
+    chunkFilename: '[name].bundle.js',
+    path: path.resolve(__dirname, "dist"),
   },
 };
