@@ -1,6 +1,7 @@
 import printMe from "./print.js";
 import { cube } from "./math.js";
 import './style.scss';
+import hello from "./templates/hello.handlebars";
 
 function getComponent() {
   return import(/* webpackChunkName: "lodash" */ "lodash")
@@ -9,7 +10,7 @@ function getComponent() {
 
       element.innerHTML = [
         "Hello webpack!",
-        "5 cubed is equal to " + cube(5)
+        "5 cubed is equal to " + cube(5) + hello()
       ].join("\n\n");
       element.classList.add('body');
 

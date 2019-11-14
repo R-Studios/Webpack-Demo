@@ -8,7 +8,7 @@ module.exports = {
     usedExports: true,
   },
   entry: {
-    app: './src/index.ts',
+    app: './src/index.js',
     print: './src/print.js'
   },
   devtool: 'inline-source-map',
@@ -26,11 +26,8 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          // Creates `style` nodes from JS strings
           'style-loader',
-          // Translates CSS into CommonJS
           'css-loader',
-          // Compiles Sass to CSS
           'sass-loader',
         ],
       },
@@ -39,6 +36,7 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      { test: /\.handlebars$/, loader: "handlebars-loader" },
     ],
   },
   resolve: {
