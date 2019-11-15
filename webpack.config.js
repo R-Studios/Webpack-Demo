@@ -8,8 +8,7 @@ module.exports = {
     usedExports: true,
   },
   entry: {
-    app: './src/index.js',
-    print: './src/print.js'
+    app: './src/index.js'
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -19,7 +18,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Output Management',
-    }),
+    })
   ],
   module: {
     rules: [
@@ -40,11 +39,12 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ],
+    extensions: [ '.tsx', '.ts', '.js' ]
   },
   output: {
     filename: "[name].bundle.js",
     chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, "dist"),
   },
+  performance: { hints: false }
 };

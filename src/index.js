@@ -1,12 +1,22 @@
-import './style.scss';
-import text from './templates/01-atoms/text.handlebars';
-
 function getComponent() {
   return import('lodash').then(({ default: _ }) => {
     const element = document.createElement('div')
 
-    element.innerHTML = text()
-    element.classList.add('body')
+    var atomic = require.context('./templates')
+    atomic.keys().forEach(function(key){
+
+      if (key.includes('.handlebars')) {
+        console.log(key);
+        console.log(atomic(key));
+        //Handlebars.registerPartial(key, atomic(key));
+
+        element.innerHTML += atomic(key)()
+      }
+      else if (key.includes('.scss')) {
+        atomic(key)
+      }
+      element.innerHTML += '<br>'
+    });
 
     return element
   }).catch(error => 'An error occurred while loading the component')
