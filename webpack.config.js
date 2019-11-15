@@ -36,7 +36,7 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
-      { test: /\.handlebars$/, loader: "handlebars-loader" },
+      { test: /\.handlebars$/, loader: "handlebars-loader" }
     ],
   },
   resolve: {
