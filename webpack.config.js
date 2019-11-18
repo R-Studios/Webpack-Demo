@@ -36,10 +36,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       { test: /\.handlebars$/, loader: "handlebars-loader" }
-    ],
-  },
-  resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ]
+    ]
   },
   output: {
     filename: "[name].bundle.js",

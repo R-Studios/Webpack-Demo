@@ -1,27 +1,13 @@
-function getComponent() {
-  return import('lodash').then(({ default: _ }) => {
-    const element = document.createElement('div')
+var atomic = require('./templates/atomic.handlebars')
 
-    var atomic = require.context('./templates')
-    atomic.keys().forEach(function(key){
-
-      if (key.includes('.handlebars')) {
-        console.log(key);
-        console.log(atomic(key));
-        //Handlebars.registerPartial(key, atomic(key));
-
-        element.innerHTML += atomic(key)()
-      }
-      else if (key.includes('.scss')) {
-        atomic(key)
-      }
-      element.innerHTML += '<br>'
-    });
-
-    return element
-  }).catch(error => 'An error occurred while loading the component')
-}
-
-getComponent().then(component => {
-  document.body.appendChild(component)
-});
+document.addEventListener('DOMContentLoaded', function () {
+  var div = document.createElement('div')
+  div.innerHTML = atomic()
+  var styles = require.context('./templates')
+  styles.keys().forEach(function (key) {
+    if (key.includes('.scss')) {
+      styles(key)
+    }
+  })
+  document.body.appendChild(div)
+})
