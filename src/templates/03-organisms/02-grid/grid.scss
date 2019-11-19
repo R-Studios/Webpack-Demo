@@ -1,0 +1,14 @@
+.organism-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--length), var(--percentage));
+  grid-template-rows: repeat(var(--length), var(--percentage));
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
+  width: 34%;
+  height: auto;
+}
+
+:root {
+  --length: 4;
+  --percentage: 2fr;
+}
